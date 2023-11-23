@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Motherbrain\SyliusProductSubscriptionPlugin
+        psr4_prefix: Motherbrain\SyliusProductSubscriptionPlugin
