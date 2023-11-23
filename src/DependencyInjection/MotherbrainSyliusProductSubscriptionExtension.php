@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class AcmeSyliusExampleExtension extends AbstractResourceExtension implements PrependExtensionInterface
+final class MotherbrainSyliusProductSubscriptionExtension extends AbstractResourceExtension implements PrependExtensionInterface
 {
     use PrependDoctrineMigrationsTrait;
 
@@ -35,7 +35,7 @@ final class AcmeSyliusExampleExtension extends AbstractResourceExtension impleme
 
     protected function getMigrationsDirectory(): string
     {
-        return '@AcmeSyliusExamplePlugin/migrations';
+        return '@MotherbrainSyliusProductSubscriptionPlugin/migrations';
     }
 
     protected function getNamespacesOfMigrationsExecutedBefore(): array
