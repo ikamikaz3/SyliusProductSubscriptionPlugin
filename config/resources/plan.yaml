@@ -1,0 +1,11 @@
+sylius_resource:
+    resources:
+        motherbrain_sylius_product_subscription_plugin.plan:
+            driver: doctrine/orm
+            classes:
+                model: Motherbrain\SyliusProductSubscriptionPlugin\Entity\Plan
+                interface: Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanInterface
+                form: Motherbrain\SyliusProductSubscriptionPlugin\Form\Type\PlanType
+                repository: Motherbrain\SyliusProductSubscriptionPlugin\Repository\PlanRepository
+                controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                factory: Sylius\Component\Resource\Factory\Factory

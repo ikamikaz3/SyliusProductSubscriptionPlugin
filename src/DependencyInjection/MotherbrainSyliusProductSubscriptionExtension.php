@@ -30,7 +30,7 @@ final class MotherbrainSyliusProductSubscriptionExtension extends AbstractResour
 
     protected function getMigrationsNamespace(): string
     {
-        return 'DoctrineMigrations';
+        return 'Motherbrain\SyliusProductSubscriptionPlugin\Migrations';
     }
 
     protected function getMigrationsDirectory(): string

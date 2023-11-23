@@ -1,0 +1,13 @@
+motherbrain_sylius_product_subscription_plugin_admin_plan:
+    resource: |
+        alias: motherbrain_sylius_product_subscription_plugin.plan
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        except: ['show']
+        redirect: index
+        grid: motherbrain_sylius_product_subscription_plugin_plan
+        permission: true
+        vars:
+            index:
+                icon: percent
+    type: sylius.resource
