@@ -1,0 +1,5 @@
+{% for name, gateway in planFactories %}
+    <a href="{{ path('motherbrain_sylius_product_subscription_plugin_admin_plan_create', {'factory': name }) }}" id="{{ name }}" class="item">
+        {{ gateway|trans }}
+    </a>
+{% endfor %}

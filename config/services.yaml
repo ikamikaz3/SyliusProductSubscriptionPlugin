@@ -1,0 +1,18 @@
+imports:
+    - { resource: services/form.yaml }
+    - { resource: services/factory.yaml }
+
+services:
+    
+    motherbrain_product_subcription_plugin.admin.menu_builder:
+        class: Motherbrain\SyliusProductSubscriptionPlugin\Menu\SubscriptionMenuBuilder
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: buildMenu }
+
+    motherbrain_product_subscription_plugin.form_registry.plan_config:
+        class: Sylius\Bundle\ResourceBundle\Form\Registry\FormTypeRegistry
+
+    motherbrain_product_subscription_plugin.form.stripe_plan_configuration:
+        class: Motherbrain\SyliusProductSubscriptionPlugin\Form\Type\StripePlanConfigurationType
+        tags:
+            - { name: motherbrain_product_subscription_plugin.plan_configuration_type, type: stripe, label: motherbrain_product_subscription_plugin.ui.stripe_plan  }

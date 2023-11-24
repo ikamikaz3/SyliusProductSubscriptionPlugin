@@ -1,0 +1,8 @@
+2023-11-24 15:40:16,958 INFO Set uid to user 0 succeeded
+2023-11-24 15:40:16,961 INFO supervisord started with pid 1
+2023-11-24 15:40:17,965 INFO spawned: 'nginx' with pid 7
+2023-11-24 15:40:17,966 INFO spawned: 'php-fpm' with pid 8
+2023-11-24 15:40:19,119 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-11-24 15:40:19,119 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-11-24 15:43:54,386 INFO reaped unknown pid 155 (terminated by SIGTERM)
+2023-11-24 18:05:39,811 INFO reaped unknown pid 554 (terminated by SIGTERM)

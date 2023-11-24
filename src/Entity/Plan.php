@@ -6,6 +6,7 @@ namespace Motherbrain\SyliusProductSubscriptionPlugin\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Sylius\Component\Order\Model\OrderItemInterface;
 use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\ToggleableTrait;
@@ -15,13 +16,21 @@ class Plan implements PlanInterface
     use ToggleableTrait;
     use TimestampableTrait;
 
-    protected ?int $id = null;
+    /** @var int|null */
+    protected $id;
 
-    protected ?string $name = null;
+    /** @var string|null */
+    protected $name;
 
-    protected array $config = [];
+    /** @var array */
+    protected $config = [];
 
-    protected Collection $products;
+    /**
+     * @var Collection|ProductInterface[]
+     *
+     * @psalm-var Collection<array-key, ProductInterface>
+     */
+    protected $products;
 
     public function __construct()
     {
@@ -41,6 +50,11 @@ class Plan implements PlanInterface
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function setProducts(ArrayCollection|Collection|array $products): void
+    {
+        $this->products = $products;
     }
 
     public function getProducts(): Collection

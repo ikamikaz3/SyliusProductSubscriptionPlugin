@@ -37,7 +37,7 @@ sylius_grid:
             actions:
                 main:
                     create:
-                        type: create
+                        type: create_plan_action
                 item:
                     update:
                         type: update

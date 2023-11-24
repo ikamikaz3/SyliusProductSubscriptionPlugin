@@ -1,0 +1,7 @@
+services:
+
+    motherbrain_sylius_product_subscription_plugin.custom_factory.plan:
+        class: Motherbrain\SyliusProductSubscriptionPlugin\Factory\PlanFactory
+        decorates: 'motherbrain_sylius_product_subscription_plugin.factory.plan'
+        arguments:
+            - '@.inner'

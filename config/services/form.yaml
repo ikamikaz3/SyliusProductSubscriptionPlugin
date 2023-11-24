@@ -1,0 +1,10 @@
+services:
+    
+    motherbrain_product_subcription_plugin.form.type.plan:
+        class: Motherbrain\SyliusProductSubscriptionPlugin\Form\Type\PlanType
+        arguments:
+            - '%motherbrain_sylius_product_subscription_plugin.model.plan.class%'
+            - []
+        tags:
+            - { name: form.type }
+        

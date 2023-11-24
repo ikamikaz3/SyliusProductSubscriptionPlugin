@@ -1,0 +1,4 @@
+motherbrain_sylius_product_subscription_plugin:
+    ui:
+        subscriptions: Abonnements
+        plans: Offres

@@ -11,3 +11,32 @@ motherbrain_sylius_product_subscription_plugin_admin_plan:
             index:
                 icon: percent
     type: sylius.resource
+
+motherbrain_sylius_product_subscription_plugin_admin_get_plan_gateways:
+    path: /plan-gateways
+    methods: [ GET ]
+    defaults:
+        _controller: motherbrain_sylius_product_subscription_plugin.controller.plan::getPlanGateways
+        template: "@MotherbrainSyliusProductSubscriptionPlugin/Plan/Gateways/planGateways.html.twig"
+
+motherbrain_sylius_product_subscription_plugin_admin_plan_create:
+    path: /plans/new/{factory}
+    methods: [GET, POST]
+    defaults:
+        _controller: motherbrain_sylius_product_subscription_plugin.controller.plan::createAction
+        _sylius:
+            section: admin
+            factory:
+                method: createWithGateway
+                arguments:
+                    gatewayFactory: $factory
+            template: "@SyliusAdmin/Crud/create.html.twig"
+            redirect: motherbrain_sylius_product_subscription_plugin_admin_plan_update
+            permission: true
+            vars:
+#                subheader: sylius.ui.manage_payment_methods_available_to_your_customers
+#                templates:
+#                    form: "@SyliusAdmin/PaymentMethod/_form.html.twig"
+                route:
+                    parameters:
+                        factory: $factory

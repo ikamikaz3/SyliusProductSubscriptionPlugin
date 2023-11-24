@@ -1,3 +1,8 @@
 imports:
     - { resource: "@MotherbrainSyliusProductSubscriptionPlugin/config/grids.yaml" }
     - { resource: "@MotherbrainSyliusProductSubscriptionPlugin/config/resources.yaml" }
+
+sylius_grid:
+    templates:
+        action:
+            create_plan_action: '@MotherbrainSyliusProductSubscriptionPlugin/Plan/Grid/Action/create.html.twig'

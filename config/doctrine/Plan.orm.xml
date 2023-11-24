@@ -18,5 +18,18 @@
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
             <gedmo:timestampable on="update"/>
         </field>
+        <many-to-many field="products" target-entity="Sylius\Component\Product\Model\ProductInterface">
+            <join-table name="motherbrain_plan_products">
+                <join-columns>
+                    <join-column name="plan_id" referenced-column-name="id" on-delete="CASCADE" />
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="product_id" referenced-column-name="id" />
+                </inverse-join-columns>
+            </join-table>
+            <cascade>
+                <cascade-persist />
+            </cascade>
+        </many-to-many>
     </mapped-superclass>
 </doctrine-mapping>

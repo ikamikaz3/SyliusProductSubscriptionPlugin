@@ -7,5 +7,5 @@ sylius_resource:
                 interface: Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanInterface
                 form: Motherbrain\SyliusProductSubscriptionPlugin\Form\Type\PlanType
                 repository: Motherbrain\SyliusProductSubscriptionPlugin\Repository\PlanRepository
-                controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                controller: Motherbrain\SyliusProductSubscriptionPlugin\Controller\PlanController
                 factory: Sylius\Component\Resource\Factory\Factory
