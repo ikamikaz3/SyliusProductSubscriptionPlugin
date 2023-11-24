@@ -1,6 +1,6 @@
 sylius_grid:
     grids:
-        odiseo_sylius_product_subscription_plugin_plan:
+        motherbrain_sylius_product_subscription_plugin_plan:
             driver:
                 name: doctrine/orm
                 options:

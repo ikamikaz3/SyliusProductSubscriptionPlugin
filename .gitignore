@@ -20,3 +20,6 @@
 ###> phpstan/phpstan ###
 phpstan.neon
 ###< phpstan/phpstan ###
+
+# PHPStorm
+.idea/
