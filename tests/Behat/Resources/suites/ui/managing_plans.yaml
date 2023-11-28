@@ -6,5 +6,7 @@ default:
 
                 - sylius.behat.context.setup.channel
                 - sylius.behat.context.setup.admin_security
-                
+
+                - sylius.behat.context.transform.locale
+
                 - motherbrain_sylius_product_subscription.behat.context.ui.admin.managing_plans

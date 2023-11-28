@@ -14,7 +14,7 @@ class CreatePage extends BaseCreatePage implements CreatePageInterface
     public function nameIt(string $name, string $languageCode): void
     {
         $this->getDocument()->fillField(
-            'Name',
+            sprintf('motherbrain_sylius_product_subscription_plugin_plan_translations_%s_name', $languageCode),
             $name,
         );
     }
