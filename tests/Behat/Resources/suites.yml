@@ -1,4 +1,4 @@
-# Put your Behat suites definitions here
+imports:
+    - suites/ui/managing_plans.yaml
 
-default:
-    suites:
+        

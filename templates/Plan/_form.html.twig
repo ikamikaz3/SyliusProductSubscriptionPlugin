@@ -1,0 +1,36 @@
+{% import '@SyliusUi/Macro/flags.html.twig' as flags %}
+
+{{ form_errors(form) }}
+
+<div class="ui segment">
+    <h4 class="ui dividing header">{{ 'sylius.ui.details'|trans }}</h4>
+    {{ form_errors(form) }}
+
+    {{ form_row(form.code) }}
+    {{ form_row(form.enabled) }}
+</div>
+
+<div class="ui segment">
+    <h4 class="ui dividing header">{{ 'sylius.ui.gateway_configuration'|trans }}</h4>
+
+    {{ form_row(form.planGatewayConfig.factoryName) }}
+    {% if form.planGatewayConfig.config is defined %}
+        {% for field in form.planGatewayConfig.config %}
+            {% if loop.index is odd and not loop.last %}<div class="two fields">{% endif %}
+            {{ form_row(field) }}
+            {% if loop.index is even %}</div>{% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+<div class="ui styled fluid accordion">
+    {% for locale, translationForm in form.translations %}
+        <div class="title{% if loop.first %} active{% endif %}">
+            <i class="dropdown icon"></i>
+            {{ flags.fromLocaleCode(locale) }} {{ locale|sylius_locale_name }}
+        </div>
+        <div class="content{% if loop.first %} active{% endif %}">
+            {{ form_row(translationForm.name) }}
+        </div>
+    {% endfor %}
+</div>

@@ -8,6 +8,9 @@ motherbrain_sylius_product_subscription_plugin_admin_plan:
         grid: motherbrain_sylius_product_subscription_plugin_plan
         permission: true
         vars:
+            all:
+                templates:
+                    form: "@MotherbrainSyliusProductSubscriptionPlugin/Plan/_form.html.twig"
             index:
                 icon: percent
     type: sylius.resource

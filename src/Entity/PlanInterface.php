@@ -8,13 +8,15 @@ use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 use Sylius\Component\Resource\Model\TimestampableInterface;
 use Sylius\Component\Resource\Model\ToggleableInterface;
+use Sylius\Component\Resource\Model\TranslatableInterface;
 
-interface PlanInterface extends ResourceInterface, CodeAwareInterface, ToggleableInterface, TimestampableInterface
+interface PlanInterface extends
+    ResourceInterface,
+    TranslatableInterface,
+    CodeAwareInterface,
+    ToggleableInterface,
+    TimestampableInterface
 {
-    public function getName(): ?string;
-
-    public function setName(?string $name): void;
-
     public function getPlanGatewayConfig(): ?PlanGatewayConfigInterface;
 
     public function setPlanGatewayConfig(PlanGatewayConfigInterface $planGatewayConfig): void;

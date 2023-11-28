@@ -9,6 +9,11 @@ sylius_resource:
                 repository: Motherbrain\SyliusProductSubscriptionPlugin\Repository\PlanRepository
                 controller: Motherbrain\SyliusProductSubscriptionPlugin\Controller\PlanController
                 factory: Sylius\Component\Resource\Factory\Factory
+            translation:
+                classes:
+                    model: Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanTranslation
+                    interface: Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanTranslationInterface
+
         motherbrain_sylius_product_subscription_plugin.plan_gateway_config:
             driver: doctrine/orm
             classes:

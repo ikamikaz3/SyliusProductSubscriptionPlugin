@@ -9,6 +9,7 @@ use Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanInterface;
 use Sylius\Bundle\ProductBundle\Form\Type\ProductChoiceType;
 use Sylius\Bundle\ResourceBundle\Form\EventSubscriber\AddCodeFormSubscriber;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Core\Model\PaymentMethodInterface;
 use Symfony\Component\Form\AbstractType;
@@ -18,6 +19,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Valid;
+use Webmozart\Assert\Assert;
 
 final class PlanType extends AbstractResourceType
 {
@@ -28,7 +31,6 @@ final class PlanType extends AbstractResourceType
         $planGatewayConfig = $plan->getPlanGatewayConfig();
 
         $builder
-            ->add('name', TextType::class)
             ->add('enabled', CheckboxType::class, [
                 'required' => false
             ])
@@ -37,6 +39,10 @@ final class PlanType extends AbstractResourceType
             ])
             ->add('products', ProductChoiceType::class, [
                 'multiple' => true
+            ])
+            ->add('translations', ResourceTranslationsType::class, [
+                'entry_type' => PlanTranslationType::class,
+                'constraints' => [new Valid()]
             ])
             ->addEventSubscriber(new AddCodeFormSubscriber())
             ->addEventListener(FormEvents::SUBMIT, function (FormEvent $event): void {
@@ -47,12 +53,19 @@ final class PlanType extends AbstractResourceType
                 }
 
                 $planGatewayConfig = $plan->getPlanGatewayConfig();
-                /** @var string|null $gatewayName */
+                Assert::notNull($planGatewayConfig);
+
                 $gatewayName = $planGatewayConfig->getGatewayName();
 
-                if (null === $gatewayName && null !== $plan->getCode()) {
-                    $planGatewayConfig->setGatewayName(StringInflector::nameToLowercaseCode($plan->getCode()));
+                $planCode = $plan->getCode();
+                if (null === $gatewayName && null !== $planCode) {
+                    $planGatewayConfig->setGatewayName(StringInflector::nameToLowercaseCode($planCode));
                 }
             });
+    }
+
+    public function getBlockPrefix(): string
+    {
+        return 'motherbrain_sylius_product_subscription_plugin_plan';
     }
 }

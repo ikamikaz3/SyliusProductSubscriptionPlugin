@@ -1,0 +1,10 @@
+Motherbrain\SyliusProductSubscriptionPlugin\Entity\Plan:
+    attributes:
+        id:
+            groups: [ 'shop:plan:read' ]
+        code:
+            groups: [ 'shop:plan:read' ]
+        name:
+            groups: [ 'shop:plan:read' ]
+        products:
+            groups: [ 'shop:plan:read' ]

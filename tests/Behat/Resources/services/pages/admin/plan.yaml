@@ -1,0 +1,11 @@
+parameters:
+    motherbrain_sylius_product_subscription_plugin.behat.page.admin.plan.create.class: Tests\Motherbrain\SyliusProductSubscriptionPlugin\Behat\Page\Admin\Plan\CreatePage 
+
+services:    
+    motherbrain_sylius_product_subscription_plugin.behat.page.admin.plan.create:
+        class: '%motherbrain_sylius_product_subscription_plugin.behat.page.admin.plan.create.class%'
+        parent: 'sylius.behat.page.admin.crud.create'
+        public: false
+        arguments:
+            - 'motherbrain_sylius_product_subscription_plugin_admin_plan_create'
+

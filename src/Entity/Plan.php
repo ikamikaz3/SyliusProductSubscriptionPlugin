@@ -6,24 +6,25 @@ namespace Motherbrain\SyliusProductSubscriptionPlugin\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Sylius\Component\Order\Model\OrderItemInterface;
 use Sylius\Component\Product\Model\ProductInterface;
 use Sylius\Component\Resource\Model\TimestampableTrait;
 use Sylius\Component\Resource\Model\ToggleableTrait;
+use Sylius\Component\Resource\Model\TranslatableTrait;
+use Sylius\Component\Resource\Model\TranslationInterface;
 
 class Plan implements PlanInterface
 {
     use ToggleableTrait;
     use TimestampableTrait;
+    use TranslatableTrait {
+        __construct as protected initializeTranslationsCollection;
+    }
 
     /** @var int|null */
     protected $id;
 
     /** @var string|null */
     protected $code;
-
-    /** @var string|null */
-    protected $name;
 
     /** @var PlanGatewayConfigInterface|null */
     protected $planGatewayConfig;
@@ -38,6 +39,7 @@ class Plan implements PlanInterface
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->initializeTranslationsCollection();
     }
 
     public function getId(): ?int
@@ -53,16 +55,6 @@ class Plan implements PlanInterface
     public function setCode(?string $code): void
     {
         $this->code = $code;
-    }
-
-    public function setName(?string $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
     }
 
     public function setPlanGatewayConfig(PlanGatewayConfigInterface $planGatewayConfig): void
@@ -90,5 +82,15 @@ class Plan implements PlanInterface
     public function removeProduct(ProductInterface $product): void
     {
         $this->products->removeElement($product);
+    }
+
+    protected function getPlanTranslation(): TranslationInterface
+    {
+        return $this->createTranslation();
+    }
+
+    protected function createTranslation(): PlanTranslationInterface
+    {
+        return new PlanTranslation();
     }
 }

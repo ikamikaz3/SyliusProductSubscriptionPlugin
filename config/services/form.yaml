@@ -7,6 +7,14 @@ services:
             - []
         tags:
             - { name: form.type }
+
+    motherbrain_product_subcription_plugin.form.type.plan_translation:
+        class: Motherbrain\SyliusProductSubscriptionPlugin\Form\Type\PlanTranslationType
+        arguments:
+            - '%motherbrain_sylius_product_subscription_plugin.model.plan_translation.class%'
+            - []
+        tags:
+            - { name: form.type }
         
     motherbrain_product_subscription_plugin.form.type.plan_gateway_config:
         class: Motherbrain\SyliusProductSubscriptionPlugin\Form\Type\PlanGatewayConfigType

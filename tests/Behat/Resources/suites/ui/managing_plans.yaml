@@ -1,0 +1,10 @@
+default:
+    suites:
+        ui_managing_plans:
+            contexts:
+                - sylius.behat.context.hook.doctrine_orm
+
+                - sylius.behat.context.setup.channel
+                - sylius.behat.context.setup.admin_security
+                
+                - motherbrain_sylius_product_subscription.behat.context.ui.admin.managing_plans
