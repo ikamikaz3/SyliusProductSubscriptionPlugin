@@ -2,15 +2,16 @@
 
 namespace Motherbrain\SyliusProductSubscriptionPlugin\Factory;
 
+use Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanGatewayConfigInterface;
 use Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanInterface;
-use Sylius\Bundle\CoreBundle\Fixture\Factory\AbstractExampleFactory;
-use Sylius\Component\Resource\Factory\Factory;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 
 class PlanFactory implements PlanFactoryInterface
 {
-    public function __construct(private FactoryInterface $decoratedFactory)
-    {
+    public function __construct(
+        private FactoryInterface $decoratedFactory,
+        private FactoryInterface $planGatewayConfigFactory
+    ) {
     }
 
     public function createNew(): PlanInterface
@@ -18,8 +19,16 @@ class PlanFactory implements PlanFactoryInterface
         return $this->decoratedFactory->createNew();
     }
 
-    public function createWithGateway(string $gateway): PlanInterface
+    public function createWithGateway(string $gatewayName): PlanInterface
     {
-        return $this->decoratedFactory->createNew();
+        /** @var PlanGatewayConfigInterface $planGatewayConfig */
+        $planGatewayConfig = $this->planGatewayConfigFactory->createNew();
+        $planGatewayConfig->setFactoryName($gatewayName);
+
+        /** @var PlanInterface $plan */
+        $plan = $this->decoratedFactory->createNew();
+        $plan->setPlanGatewayConfig($planGatewayConfig);
+
+        return $plan;
     }
 }

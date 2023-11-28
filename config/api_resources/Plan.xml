@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<resources xmlns="https://api-platform.com/schema/metadata"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="https://api-platform.com/schema/metadata https://api-platform.com/schema/metadata/metadata-2.0.xsd"
+>
+    <resource class="%motherbrain_sylius_product_subscription_plugin.model.plan.class" shortName="Plan">
+        <attribute name="normalization_context">
+            <attribute name="groups">
+                <attribute>shop:plan:read</attribute>
+            </attribute>
+        </attribute>
+        <attribute name="denormalizationContext">
+            <attribute name="groups">
+                <attribute>shop:plan:write</attribute>
+            </attribute>
+        </attribute>
+
+        <attribute name="validation_groups">sylius</attribute>
+
+        <collectionOperations>
+            <collectionOperation name="shop_get_plans">
+                <attribute name="method">GET</attribute>
+                <attribute name="path">/subscription-plans</attribute>
+            </collectionOperation>
+        </collectionOperations>
+    </resource>
+</resources>

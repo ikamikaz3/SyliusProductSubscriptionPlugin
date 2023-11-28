@@ -20,10 +20,13 @@ class Plan implements PlanInterface
     protected $id;
 
     /** @var string|null */
+    protected $code;
+
+    /** @var string|null */
     protected $name;
 
-    /** @var array */
-    protected $config = [];
+    /** @var PlanGatewayConfigInterface|null */
+    protected $planGatewayConfig;
 
     /**
      * @var Collection|ProductInterface[]
@@ -42,6 +45,16 @@ class Plan implements PlanInterface
         return $this->id;
     }
 
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(?string $code): void
+    {
+        $this->code = $code;
+    }
+
     public function setName(?string $name): void
     {
         $this->name = $name;
@@ -52,9 +65,14 @@ class Plan implements PlanInterface
         return $this->name;
     }
 
-    public function setProducts(ArrayCollection|Collection|array $products): void
+    public function setPlanGatewayConfig(PlanGatewayConfigInterface $planGatewayConfig): void
     {
-        $this->products = $products;
+        $this->planGatewayConfig = $planGatewayConfig;
+    }
+
+    public function getPlanGatewayConfig(): ?PlanGatewayConfigInterface
+    {
+        return $this->planGatewayConfig;
     }
 
     public function getProducts(): Collection
@@ -72,15 +90,5 @@ class Plan implements PlanInterface
     public function removeProduct(ProductInterface $product): void
     {
         $this->products->removeElement($product);
-    }
-
-    public function setConfig(array $config): void
-    {
-        $this->config = $config;
-    }
-
-    public function getConfig(): array
-    {
-        return $this->config;
     }
 }

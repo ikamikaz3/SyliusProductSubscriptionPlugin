@@ -10,6 +10,7 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO"/>
         </id>
+        <field name="code" column="code" type="string" unique="true"/>
         <field name="name" type="string"/>
         <field name="enabled" type="boolean"/>
         <field name="createdAt" column="created_at" type="datetime">
@@ -18,6 +19,10 @@
         <field name="updatedAt" column="updated_at" type="datetime" nullable="true">
             <gedmo:timestampable on="update"/>
         </field>
+        <many-to-one field="planGatewayConfig" target-entity="Motherbrain\SyliusProductSubscriptionPlugin\Entity\PlanGatewayConfigInterface">
+            <cascade><cascade-all/></cascade>
+            <join-column name="gateway_config_id" referenced-column-name="id" nullable="true" on-delete="SET NULL" />
+        </many-to-one>
         <many-to-many field="products" target-entity="Sylius\Component\Product\Model\ProductInterface">
             <join-table name="motherbrain_plan_products">
                 <join-columns>

@@ -7,5 +7,5 @@ use Sylius\Component\Resource\Factory\FactoryInterface;
 
 interface PlanFactoryInterface extends FactoryInterface
 {
-    public function createWithGateway(string $gateway): PlanInterface;
+    public function createWithGateway(string $gatewayName): PlanInterface;
 }

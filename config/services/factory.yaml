@@ -2,6 +2,8 @@ services:
 
     motherbrain_sylius_product_subscription_plugin.custom_factory.plan:
         class: Motherbrain\SyliusProductSubscriptionPlugin\Factory\PlanFactory
-        decorates: 'motherbrain_sylius_product_subscription_plugin.factory.plan'
+        decorates: motherbrain_sylius_product_subscription_plugin.factory.plan
+        public: false
         arguments:
-            - '@.inner'
+            - '@motherbrain_sylius_product_subscription_plugin.custom_factory.plan.inner'
+            - '@motherbrain_sylius_product_subscription_plugin.factory.plan_gateway_config'

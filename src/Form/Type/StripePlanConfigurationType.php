@@ -11,6 +11,6 @@ final class StripePlanConfigurationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('productId', TextType::class);
+            ->add('pricingId', TextType::class);
     }
 }

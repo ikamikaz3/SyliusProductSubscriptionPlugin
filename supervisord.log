@@ -6,3 +6,14 @@
 2023-11-24 15:40:19,119 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
 2023-11-24 15:43:54,386 INFO reaped unknown pid 155 (terminated by SIGTERM)
 2023-11-24 18:05:39,811 INFO reaped unknown pid 554 (terminated by SIGTERM)
+2023-11-24 18:15:08,507 WARN received SIGTERM indicating exit request
+2023-11-24 18:15:08,510 INFO waiting for nginx, php-fpm to die
+2023-11-24 18:15:09,512 INFO stopped: php-fpm (exit status 0)
+2023-11-24 18:15:09,615 INFO stopped: nginx (exit status 0)
+2023-11-28 08:53:07,913 INFO Set uid to user 0 succeeded
+2023-11-28 08:53:07,915 INFO supervisord started with pid 1
+2023-11-28 08:53:08,926 INFO spawned: 'nginx' with pid 7
+2023-11-28 08:53:08,927 INFO spawned: 'php-fpm' with pid 8
+2023-11-28 08:53:09,987 INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-11-28 08:53:09,987 INFO success: php-fpm entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2023-11-28 09:31:47,930 INFO reaped unknown pid 413 (terminated by SIGTERM)
