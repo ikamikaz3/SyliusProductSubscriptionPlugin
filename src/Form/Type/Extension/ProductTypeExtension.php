@@ -11,15 +11,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 final class ProductTypeExtension extends AbstractTypeExtension
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         parent::buildForm($builder, $options);
 
-//        $builder
-//            ->add('subscription', CheckboxType::class, [
-//                'label' => 'motherbrain_sylius_product_subscription_plugin.ui.product_is_subscription',
-//                'required' => false
-//            ]);
+        $builder
+            ->add('subscription', CheckboxType::class, [
+                'label' => 'motherbrain_sylius_product_subscription_plugin.ui.product_is_subscription',
+                'required' => false
+            ]);
     }
 
     public static function getExtendedTypes(): iterable

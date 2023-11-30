@@ -4,5 +4,5 @@ Motherbrain\SyliusProductSubscriptionPlugin\Entity\Plan:
             groups: [ 'shop:plan:read' ]
         code:
             groups: [ 'shop:plan:read' ]
-        products:
+        product:
             groups: [ 'shop:plan:read' ]

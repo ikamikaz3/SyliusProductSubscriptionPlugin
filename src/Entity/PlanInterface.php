@@ -21,9 +21,7 @@ interface PlanInterface extends
 
     public function setPlanGatewayConfig(PlanGatewayConfigInterface $planGatewayConfig): void;
 
-    public function addProduct(ProductInterface $product): void;
+    public function getProduct(): ?ProductInterface;
 
-    public function removeProduct(ProductInterface $product): void;
-
-    public function getProducts(): Collection;
+    public function setProduct(ProductInterface $product): void;
 }

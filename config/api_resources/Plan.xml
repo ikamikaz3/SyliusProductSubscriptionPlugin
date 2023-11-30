@@ -23,5 +23,23 @@
                 <attribute name="path">shop/subscription-plans</attribute>
             </collectionOperation>
         </collectionOperations>
+
+        <itemOperations>
+            <itemOperation name="shop_select_plan">
+                <attribute name="method">POST</attribute>
+                <attribute name="path">shop/subscription-plans/{id}/select</attribute>
+                <attribute name="messenger">input</attribute>
+                <attribute></attribute>
+                <attribute name="input">Motherbrain\SyliusProductSubscriptionPlugin\ApiPlatform\Command\SelectPlan</attribute>
+                <attribute name="denormalization_context">
+                    <attribute name="groups">
+                        <attribute>shop:plan:select_plan</attribute>
+                    </attribute>
+                </attribute>
+                <attribute name="openapi_context">
+                    <attribute name="summary">Select the plan to subscribe to</attribute>
+                </attribute>
+            </itemOperation>
+        </itemOperations>
     </resource>
 </resources>

@@ -9,6 +9,7 @@ motherbrain_sylius_product_subscription_plugin_admin_plan:
         permission: true
         vars:
             all:
+                subheader: motherbrain_sylius_product_subscription_plugin.ui.manage_plans_available_to_your_customers
                 templates:
                     form: "@MotherbrainSyliusProductSubscriptionPlugin/Plan/_form.html.twig"
             index:
@@ -37,9 +38,9 @@ motherbrain_sylius_product_subscription_plugin_admin_plan_create:
             redirect: motherbrain_sylius_product_subscription_plugin_admin_plan_update
             permission: true
             vars:
-#                subheader: sylius.ui.manage_payment_methods_available_to_your_customers
-#                templates:
-#                    form: "@SyliusAdmin/PaymentMethod/_form.html.twig"
+                subheader: motherbrain_sylius_product_subscription_plugin.ui.manage_plans_available_to_your_customers
+                templates:
+                    form: "@MotherbrainSyliusProductSubscriptionPlugin/Plan/_form.html.twig"
                 route:
                     parameters:
                         factory: $factory

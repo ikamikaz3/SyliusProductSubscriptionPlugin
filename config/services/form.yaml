@@ -5,6 +5,7 @@ services:
         arguments:
             - '%motherbrain_sylius_product_subscription_plugin.model.plan.class%'
             - []
+            - '@sylius.repository.product'
         tags:
             - { name: form.type }
 

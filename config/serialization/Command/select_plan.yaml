@@ -1,0 +1,4 @@
+Motherbrain\SyliusProductSubscriptionPlugin\ApiPlatform\Command\SelectPlan:
+    attributes:
+        billingAddress:
+            groups: [ 'shop:plan:select_plan' ]

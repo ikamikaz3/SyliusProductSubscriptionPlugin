@@ -12,6 +12,7 @@ use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
 use Sylius\Bundle\ResourceBundle\Form\Type\ResourceTranslationsType;
 use Sylius\Component\Core\Formatter\StringInflector;
 use Sylius\Component\Core\Model\PaymentMethodInterface;
+use Sylius\Component\Core\Repository\ProductRepositoryInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,6 +25,14 @@ use Webmozart\Assert\Assert;
 
 final class PlanType extends AbstractResourceType
 {
+    public function __construct(
+        string $dataClass,
+        array $validationGroups,
+        private ProductRepositoryInterface $productRepository
+    ) {
+        parent::__construct($dataClass, $validationGroups);
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         /** @var PlanInterface $plan */
@@ -37,8 +46,8 @@ final class PlanType extends AbstractResourceType
             ->add('planGatewayConfig', PlanGatewayConfigType::class, [
                 'data' => $planGatewayConfig
             ])
-            ->add('products', ProductChoiceType::class, [
-                'multiple' => true
+            ->add('product', ProductChoiceType::class, [
+                'choices' => $this->productRepository->findBy(['subscription' => true])
             ])
             ->add('translations', ResourceTranslationsType::class, [
                 'entry_type' => PlanTranslationType::class,

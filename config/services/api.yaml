@@ -1,0 +1,9 @@
+services:
+    
+    Motherbrain\SyliusProductSubscriptionPlugin\ApiPlatform\CommandHandler\SelectPlanHandler:
+        tags:    
+            - { name: messenger.message_handler }
+
+    Motherbrain\SyliusProductSubscriptionPlugin\ApiPlatform\DataTransformer\PlanIdAwareCommandDataTransformer:
+        tags:
+            - { name: sylius.api.command_data_transformer }

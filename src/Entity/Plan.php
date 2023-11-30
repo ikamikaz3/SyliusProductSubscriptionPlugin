@@ -29,16 +29,11 @@ class Plan implements PlanInterface
     /** @var PlanGatewayConfigInterface|null */
     protected $planGatewayConfig;
 
-    /**
-     * @var Collection|ProductInterface[]
-     *
-     * @psalm-var Collection<array-key, ProductInterface>
-     */
-    protected $products;
+    /** @var ProductInterface|null */
+    protected $product;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
         $this->initializeTranslationsCollection();
     }
 
@@ -67,21 +62,14 @@ class Plan implements PlanInterface
         return $this->planGatewayConfig;
     }
 
-    public function getProducts(): Collection
+    public function setProduct(?ProductInterface $product): void
     {
-        return $this->products;
+        $this->product = $product;
     }
 
-    public function addProduct(ProductInterface $product): void
+    public function getProduct(): ?ProductInterface
     {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-        }
-    }
-
-    public function removeProduct(ProductInterface $product): void
-    {
-        $this->products->removeElement($product);
+        return $this->product;
     }
 
     protected function getPlanTranslation(): TranslationInterface

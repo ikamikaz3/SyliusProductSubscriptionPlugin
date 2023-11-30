@@ -1,0 +1,4 @@
+#Motherbrain\SyliusProductSubscriptionPlugin\ApiPlatform\Command\SelectPlan:
+#    constraints:
+#        - Sylius\Bundle\ApiBundle\Validator\Constraints\CorrectOrderAddress:
+#              groups: [ 'sylius' ]

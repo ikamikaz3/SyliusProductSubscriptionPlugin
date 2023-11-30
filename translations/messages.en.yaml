@@ -2,4 +2,7 @@ motherbrain_sylius_product_subscription_plugin:
     ui:
         subscriptions: Subscriptions
         plans: Plans
-        product_is_subscription: This product is a subscription  
+        product_is_subscription: This product is a subscription
+        manage_plans_available_to_your_customers: Manage plans available to your customers
+        edit_plan: Edit plan
+        create_plan: New plan
