@@ -2,3 +2,4 @@ motherbrain_sylius_product_subscription_plugin:
     ui:
         subscriptions: Subscriptions
         plans: Plans
+        product_is_subscription: This product is a subscription  

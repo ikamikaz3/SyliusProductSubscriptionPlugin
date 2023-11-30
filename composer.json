@@ -62,7 +62,7 @@
     "autoload": {
         "psr-4": {
             "Motherbrain\\SyliusProductSubscriptionPlugin\\": "src/",
-            "Tests\\Motherbrain\\SyliusProductSubscriptionPlugin\\": "tests/"
+            "Tests\\Motherbrain\\SyliusProductSubscriptionPlugin\\": ["tests/", "tests/Application/src"]
         }
     },
     "autoload-dev": {

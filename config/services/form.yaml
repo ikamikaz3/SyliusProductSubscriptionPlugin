@@ -25,3 +25,8 @@ services:
         tags:
             - { name: form.type }            
         
+    motherbrain_product_subscription_plugin.form.type_extension.product:
+        class: Motherbrain\SyliusProductSubscriptionPlugin\Form\Type\Extension\ProductTypeExtension
+        tags:
+            - { name: form.type_extension }
+    

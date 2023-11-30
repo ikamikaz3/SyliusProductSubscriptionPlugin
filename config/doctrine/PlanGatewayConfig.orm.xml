@@ -9,8 +9,8 @@
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO"/>
         </id>
-        <field name="config" type="json" />
-        <field name="factoryName" type="string" />
-        <field name="gatewayName" type="string" />
+        <field name="config" column="config" type="json" />
+        <field name="factoryName" column="factory_name" type="string" />
+        <field name="gatewayName" column="gateway_name" type="string" />
     </mapped-superclass>
 </doctrine-mapping>
